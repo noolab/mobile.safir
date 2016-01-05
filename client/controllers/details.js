@@ -143,7 +143,8 @@ Template.headermobile.helpers({
 	getCartshow:function(){
 		var	userId=Meteor.userId();
 		console.log('Myconsole:'+cart.find({$and:[{order_status:0},{userId:userId}]}).count());
-		return cart.find({$and:[{order_status:0},{userId:userId}]});
+		Session.set('cartcount',cart.find({$and:[{order_status:0},{userId:userId}]}).count());
+		return cart.find({$and:[{order_status:0},{userId:userId}]},{limit:2});
 	},
 	getProduct: function(id){
 		return products.findOne({"_id":id});
@@ -156,7 +157,10 @@ Template.headermobile.helpers({
 		
 	},
 	getNameproduct: function(id_product){
-		return products.findOne({"_id":id_product}).title;
+		var title=products.findOne({"_id":id_product}).title;
+		var length = 15;
+		var trimmedString = title.substring(0, length);
+		return trimmedString+"...";
 	},
 	getTotol:function(){
 		var total=0;
@@ -167,6 +171,14 @@ Template.headermobile.helpers({
 		})
 		return total;
 	},
+	countCartResult:function(){
+		var count=Session.get('cartcount');
+		if(count>0){
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 });
 Template.headermobile.events({
@@ -175,4 +187,10 @@ Template.headermobile.events({
 		cart.remove(this._id);
 	}
 })
+Template.headermobile.onRendered(function(){
+	// var string = "this is a string";
+	// var length = 10;
+	// var trimmedString = string.substring(0, length);
+	// alert(trimmedString);
+});
 
