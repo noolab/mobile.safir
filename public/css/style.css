@@ -1199,4 +1199,9 @@ article
 	#list3 { width: 100%; opacity: 0; }
 		
 /* MENU */
->>>>>>> b6dca53e9be7486647d3bd8bd36d05fb38a1cecb
+#panel_makeup ul li {
+    padding: 10px 0px;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(156,153,163,1);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(156,153,163,1);
+    box-shadow: 0px 5px 5px -3px #9C99A3;
+}
