@@ -30,8 +30,8 @@
                     <div class="swiper-wrapper">
                         {{#each products}} 
                         <div class="swiper-slide">
-                            <div class="thumbnail">
-                                <a href="{{pathFor 'details' id=_id}}" class="title"><img data-holder-rendered="true" src="/upload/{{getImg image}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> </a>
+                            <div class="img-circle">
+                                <a href="{{pathFor 'details' id=_id}}" class="title"><img data-holder-rendered="true" src="/upload/{{getImg image}}" data-src="holder.js/100%x200" alt="100%x200" width="50" /> </a>
                           
                                 <div> 
                                     <p class="text-center text-selling-detail"><a href="{{pathFor 'details' id=_id}}" class="title">{{title}}</a></p> 

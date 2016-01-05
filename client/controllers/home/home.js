@@ -1,5 +1,5 @@
 Template.home.rendered=function(){
-	$('#slider').flexslider({
+	$('#slider1').flexslider({
 					animation: "slide",
 					directionNav: true,
 					animationLoop: true,
@@ -8,7 +8,7 @@ Template.home.rendered=function(){
 					slideshow: true,
 					animationDuration: 300,
 					start: function(){
-						 $('#slider').animate({opacity: 1}, 750);
+						 $('#slider1').animate({opacity: 1}, 750);
 					},
 				});
 
