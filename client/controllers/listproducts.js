@@ -13,7 +13,7 @@ Template.listproducts.rendered=function(){
 					slideshow: true,
 					animationDuration: 300,
 					start: function(){
-						 $('#slider').animate({opacity: 1}, 750);
+						 $('#slider').animate({opacity: 1}, 50);
 					},
 				});
 									

@@ -1,12 +1,11 @@
 <template name="home">
-  <section id="slider">
+   <section id="slider1">
     <ul class="slides">
      {{#each contents}}
-     <li><img src="/upload/{{getImg image}}" alt="" /></li>
+     <li><img src="/upload/{{getImg image}}" class="img-responsive" alt="No IMAGE" /></li>
      {{/each}}
 
-   </ul>
-            
+   </ul>            
  </section> <!-- #slider -->
 
  <section id="list1">
@@ -25,7 +24,6 @@
  </ul>
  {{/with}}
  </section>
-
 
 <section id="list2">
   {{#with list2}}
