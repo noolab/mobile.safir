@@ -1,0 +1,167 @@
+<template name="details">
+   <article >
+                <section class="shadow_bottom">
+                  <div class="wrapper">
+                        <div class="row">
+                          <div style="" class="col-sm-12">
+                            <h3 style="padding:20px;" class="pull-right">{{title}}</h3>
+                            
+                          </div>
+                          {{#with getSizeColor CODE}} 
+                      <div class="test_color">
+                    
+                    <div class="choose_color col-xs-12  col-sm-12">
+                            <section class="sky-form" style="padding-left:15px;">
+                                <button  id="btn_color" class="btn-default btn col-sm-3 col-xs-3">COLOR</button>
+                                <ul id="ul_color" class="w_nav2 col-sm-9 col-xs-9 hide_color_size" >
+                                    <li><a class="color1" href="#"><img src="{{color}}" alt="image-color"></a></li>
+                                    
+                                </ul>
+                            </section>       
+                        </div><br>
+                    <div class="choose_size col-lg-12 col-xs-12 col-md-12 col-sm-12">
+                            <section class="sky-form" style="padding-left:15px;">
+                                <button id="btn_size" style="margin-top:15px;" class="btn-default btn col-sm-3 col-xs-3">SIZE</button>
+                                <ul id="ul_size" class="w_nav2 col-sm-9 col-xs-9 hide_color_size" style="color:black; font-weight:bold; padding-top:15px;">
+                                  {{#each size}}
+                                    <li><a class="color" href="#">{{value}}</a></li>
+                                  {{/each}}
+                                  
+                                    
+                                </ul>
+                            </section>                                               
+                        </div>
+                      </div>
+                      {{/with}}
+                              <!--<div class="pull-left space-top-detail">
+                                  <img src="img/detail-sm.png" class="img-responsive">
+                                  <img src="img/detail-sm1.png" class="img-responsive space-img-detail">
+                              </div>-->
+                              <div class="space-top-detail1" align="center">
+                                  <img src="/upload/{{getImg image}}" class="/img-responsive">
+                              </div>
+                              
+                                <div class="col-sm-12" style="padding:30px;" >
+                                  <form role="form" id="cart" style="padding:0px;margin:0px;">
+                                    <label  >Select Shop</label>
+                                    <select class=" col-xs-12 col-sm-12" name="shop" required>
+                                      <option value="">Please Select</option>
+                                      {{#each getShop shop}}
+                                        <option value="{{_id}}">{{name}}</option>
+                                      {{/each}}
+                                    </select>
+                                  
+                                  <input type="submit" class="btn_addtocard pull-left" value="Add to cart" style="margin-top:15px; background-color:#dd2a1b;">
+                                   </form>
+                                  <h2 class="pull-right">{{price}}</h2>
+                                </div>
+                             
+                            </div>
+
+                            <div class="row">
+                             <div class="col-sm-12">
+                               <div class="well-deatail">
+                                    <p class="text-center text-detail">{{{description}}}</p>
+                                </div>
+                             </div>
+                            </div>
+                        </div>
+                        
+                   </section>
+
+                   <section class="shadow_bottom" id="produst_listing">
+    <div class="container">
+      <div class="row">
+        <h1 class="content-text-review">{{_ "REVIEWS & FEEDBACKS"}}</h1>
+        <div class="clearfix"></div>
+        <div class="col-md-12">
+          <div class="hold_btn_filter_view">
+            <div class="pull-right">
+              <button class="btn btn-filter-view" type="button" id="input">
+              <i class="fa fa-search"></i> {{_ "FILTER REVIEWS"}}</button>  
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          
+          {{#if currentUser}}
+            {{>addreview}}
+          {{/if}}
+            {{#each getReviews review filterReview removeFilter}}
+              {{>review}}
+            {{else}}
+                          <i>No reviews</i>
+            {{/each}}
+
+          <div class="pull-right">
+              <h3 id="show1">{{_ "MORE REVIEWS"}} &nbsp; <i class="fa fa-angle-down" id="btnMore"></i></h3>   
+          </div>
+          <div class="wrapper_forum">
+            <div class="filter_set">
+        
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+
+                   <section id="produst_listing">
+                            <div class="container">
+                              <div class="row">
+                                <div class="hold_product_detail">
+                                  <div class="col-md-12 well">
+                                  <div class="col-md-12">
+                                    <h1>ARTICLE ABOUT</h1>
+                                  </div>
+
+                                  {{#each articles title}}
+                                    {{>article}}
+                                  {{else}}
+                                    <i>No articles about {{title}}</i>
+                                  {{/each}}
+                                 
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                  </section>
+
+                      <section id="forum_question">
+                        <div class="container">
+                          <div class="hold_product_detail">
+                              <div class="col-md-12">
+                                <h1>{{_ "RELATED PRODUCTS"}}</h1>
+                              </div>
+                            <div class="row"></div> 
+                            {{>recommendation}}
+                         
+                          </div>
+                        </div>
+                      </section>
+     </article>
+
+<script>
+$('.octofilter-link').click(function() {
+    alert( "HOPP" );
+    console.log("TRIGGER");
+    
+
+  });
+    var galleryTop = new Swiper('.gallery-top', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 10,
+    });
+    var galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,
+        centeredSlides: true,
+        slidesPerView: 'auto',
+        touchRatio: 0.2,
+        slideToClickedSlide: true
+    });
+    galleryTop.params.control = galleryThumbs;
+    galleryThumbs.params.control = galleryTop;
+</script>
+
+</template>

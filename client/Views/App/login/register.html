@@ -1,0 +1,47 @@
+<template name="register">
+<!-- 	<div class="wrapper" style="background:url('../images/bg_popup-01.png') no-repeat center center;"> -->
+<div class="wrapper">
+	<div class="col-xs-12">
+		<form class="bg_login center-block" method="post">
+			<div class="text-center title-form">
+				<a href="/login"><button class="login">{{_ "Login"}}</button></a>
+					<span class="or">or</span>
+				<button class="registers">{{_ "Register"}}</button>
+			</div> 
+			<div class="col-xs-12 form-group">	
+				<label class="lable_input">{{_ "Username"}}</label>
+					<input class="long_form reg-username" name="username" >
+			</div>
+			<div class="col-xs-12 form-group">	
+			  	<label class="lable_input">{{_ "First name"}}:</label>
+					<input class="short_form" name="fname" >
+			</div>
+			<div class="col-xs-12 form-group">	
+			  	<label class="lable_input">{{_ "Last name"}}:</label>
+					<input class="short_form" name="lname" >
+			</div>
+			<div class="col-xs-12 form-group">	
+			  	<label class="lable_input" for="pays">Pays:</label>
+					<input class="short_form" name="pays" >
+			</div>
+			<div class="col-xs-12 form-group">	
+			  	<label class="lable_input">{{_ "Ville"}}:</label>
+					<input class="short_form" name="ville" >
+			</div>
+			<div class="col-xs-12 form-group">	
+			  	<label class="lable_input">{{_ "Email"}}:</label>
+					<input class="long_form" name="email" >
+			</div>
+			<div class="col-xs-12 form-group">	
+			  	<label class="lable_input">{{_ "Password"}}:</label>
+					<input class="long_form" name="password" type="password">
+					<br>
+			</div>
+		  	<div class="col-xs-12">
+		  		<button class="btn_registers" id="register">{{_ "Register"}}</button>
+		  	</div>
+		</form>
+	</div>
+</div>
+	
+</template>

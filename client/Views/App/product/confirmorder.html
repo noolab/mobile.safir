@@ -1,0 +1,50 @@
+<template name= "confirmorder">
+	<div class="container" style="padding-bottom:20px;">
+<div class="row">
+						<!-- Address -->
+						<form>
+						   <table class="table">
+									<tbody>
+										{{#with getprofile}}
+										
+										<tr>
+											<td><strong>Email:</strong></td>
+											{{#each emails}}
+											<td style="font-weight:bold" id="email">{{address}}</td>
+											{{/each}}
+										</tr>
+										<tr>
+											<td><strong>Address:</strong></td>
+											<td style="font-weight:bold" id="address1">{{profile.address}}</td>
+										</tr>
+										{{/with}}
+									</tbody>
+									
+								</table>
+					<div class="form-group" style="padding-bottom:20px;">
+						<label class="control-label col-sm-3" for="address">Address <span style="color:red">*</span></label>
+						<div class="col-sm-9">
+							<textarea type="textarea" name="address" id="address" class="form-control input-sm" placeholder="Address" col="15"></textarea>
+						</div>
+					</div>
+					<div class="form-group" style="padding-bottom:20px;">
+						<label class="control-label col-sm-3" for="address">Choose Address <span style="color:red">*</span></label>
+						<div class="col-sm-9">
+							  <input type="checkbox" name="address1" id="address1" value="{{getAddress1}}">{{getAddress1}}<br>
+						</div>	
+					</div>
+
+					<div class="col-sm-6" style="float:right">
+							<div class="col-sm-4">
+							<input type="submit" value="Update" id="btnNext" class="btn-xs btn-primary btn-block pull-right">
+						</div>
+						<div class="col-sm-4">
+							<a href="/confirmorder2"><input type="button" value="Next" class="btn-xs btn-primary btn-block pull-left"></a>
+							</div>
+				   </div>
+					</form>
+					<!-- End Address -->
+					</div>
+					
+				</div>
+</template>

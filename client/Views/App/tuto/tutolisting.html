@@ -1,0 +1,29 @@
+<template name="tutolisting">
+		 <div class="container">		
+		  <div class="clearfix"></div>
+            <div class="space_cont_top">
+             <div class="row">
+             	
+             {{#each getContent _id }}
+	              <div class="col-md-4 shadow_bottom"  style="height:100px; height:50%; overflow: hidden; cursor:pointer" >
+	                 <a href="/tutodetails/{{_id}}"> <h4 class="h4-bold-tuto-1" style="color:#071018;">{{title}}</h4></a>
+					 <a href="/tutodetails/{{_id}}"> <img src="/uploads/{{getImg image}}" class="img-responsive" wi></a>
+					  <div class="share-control1">
+						  <div class="col-md-5">
+						     <a href=""><p class="txt-tuto-sm"><i class="fa fa-share-alt">&nbsp; &nbsp;</i>Partager</p> </a>
+						  </div>
+						  <div class="col-md-7">
+						     <p class="txt-tuto-sm3"><i class="fa fa-heart-o">&nbsp;</i>132 personnent aiment</p>
+						  </div> 
+					   </div> 
+					   <div class="col-md-12 row share-control1" style="padding-bottom:-20px;">
+					  	<p class="p-font-sm-1">{{{content}}}</p>
+					  </div>
+	              </div>
+	              {{/each}}
+	              
+                 </div>
+	         </div>
+          </div>
+
+</template>

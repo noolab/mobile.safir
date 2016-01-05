@@ -1,0 +1,56 @@
+<template name="searchproduct">
+	<article>
+	<h1>Products</h1>
+	
+                	<div class="wrapper">
+                        <p class="text-selling-top">{{nbproducts}} products</p>
+                        <p class="text-selling-second">Best selling <a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></p>
+                        <!--<div class="row">-->
+                        <div class="row">
+                        {{#each products}}
+                        <div class="col-xs-6">
+                                <div class="thumbnail">
+                                    <a href="{{pathFor 'details' id=_id}}" class="title"><img data-holder-rendered="true" src="/upload/{{getImg image}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> </a>
+                                    <div class="caption"> 
+                                        <p class="text-center text-selling-detail"><a href="{{pathFor 'details' id=_id}}" class="title">{{title}}</a></p> 
+                                        <h3 class="text-center price-selling"><a href="{{pathFor 'details' id=_id}}" class="title">{{price}} </a><a href=""><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/each}}
+                            
+                           
+                        </div>
+</div>
+                   <!-- </div> -->
+                
+		<h1>Contents</h1>
+	<div class="container">
+		<div class="hold_result">
+						<p>{{nbcontents}} contents results</p>
+		</div>
+				
+	</div>
+	{{#each content}}
+	<div class="container">
+				<div class="mode-news webzine-title1">
+					<h2 class="text-center bold"><a href="#">{{title}}</a></h2>
+					<div class="mode-img"><a href="#">
+						<img src="/upload/{{getImg image}}" class="center-block img-responsive"></a>
+					</div>
+					<div class="mode-description">
+						<!-- <p class="center-block">{{{content}}}</p> -->
+					</div>
+						
+					
+				</div>
+			</div>
+		<section id="not-line-straight">
+			<img src="/images/line1.jpg" class="img-responsive">
+		</section>
+		{{/each}}
+    
+
+</article>
+
+</template>

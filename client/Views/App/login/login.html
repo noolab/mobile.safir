@@ -1,0 +1,40 @@
+<template name="registerSuccess">
+ 	<div class="container">
+		<h3>Thanks for joined us!</h3>
+		<div class="body">
+			You have successfully registered. <a  href="/login" id="goto-login">Login</a> to order any products. 
+		</div>
+  	</div>
+</template>
+
+<template name="login">
+<!-- 	<div class="wrapper" style="background:url('../images/bg_popup-01.png') no-repeat center center;"> -->
+<div class="wrapper">
+	<div class="col-xs-12">
+		<form class="bg_login center-block" method="post">
+			<div class="text-center title-form">
+				<button class="login_not_click">{{_ "Login"}}</button>
+					<span class="or">or</span>
+				<a href="/register"><button class="registers_click">{{_ "Register"}}</button></a>
+			</div>
+			<div class="col-xs-12 form-group">	
+			  	<label class="lable_input">{{_ "Username"}}</label>
+					<input class="long_form" name="email">
+					<br>
+			</div>
+			<div class="col-xs-12 form-group">	
+			  	<label class="lable_input">{{_ "Password"}}</label>
+					<input class="long_form" name="password" type="password">
+					<br>
+			</div>
+		  	<div class="col-xs-12">
+		  		<button class="login_submit btn_login">{{_ "Login"}}</button>
+			  	<label class="pull-right">
+			   		<a href="#" style="color:#333;text-decoration: underline #d9534f;">{{_ "Forgot your password ?"}}</a>
+			  	</label>
+		  	</div>
+		</form>
+	</div>
+</div>
+	
+</template>

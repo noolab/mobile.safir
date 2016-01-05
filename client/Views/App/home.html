@@ -1,0 +1,64 @@
+<template name="home">
+  <section id="slider">
+    <ul class="slides">
+     {{#each contents}}
+     <li><img src="/upload/{{getImg image}}" alt="" /></li>
+     {{/each}}
+
+   </ul>
+            
+ </section> <!-- #slider -->
+
+ <section id="list1">
+  {{#with list1}}
+  <h2 class="home_products">{{title}}</h2>
+  <ul class="slides">
+
+    {{#each products}}
+    {{#with getProduct this}}
+    <li>
+     <a href="{{pathFor 'details' id=_id}}"><img src="/upload/{{getImg image}}" class="img-circle img-responsive"  /> </a>
+   </li>
+   {{/with}}
+   {{/each}}
+
+ </ul>
+ {{/with}}
+ </section>
+
+
+<section id="list2">
+  {{#with list2}}
+  <h2 class="home_products">{{title}}</h2>
+  <ul class="slides">
+
+    {{#each products}}
+    {{#with getProduct this}}
+    <li>
+     <a href="{{pathFor 'details' id=_id}}"><img src="/upload/{{getImg image}}" class="img-circle img-responsive"  /> </a>
+   </li>
+   {{/with}}
+   {{/each}}
+
+ </ul>
+ {{/with}} 
+</section>
+
+<section id="list3">
+  {{#with list3}}
+  <h2 class="home_products">{{title}}</h2>
+  <ul class="slides">
+
+    {{#each products}}
+    {{#with getProduct this}}
+    <li>
+     <a href="{{pathFor 'details' id=_id}}"><img src="/upload/{{getImg image}}" class="img-circle img-responsive"  /> </a>
+   </li>
+   {{/with}}
+   {{/each}}
+
+ </ul>
+ {{/with}} 
+</section>
+
+</template>

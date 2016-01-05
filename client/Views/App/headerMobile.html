@@ -1,0 +1,307 @@
+<template name="headermobile">
+        <section id="page-wrapper">
+
+            <section id="menu-wrapper">
+
+                <div id="menu-search">
+                    <input id="menu-search-input-text" type="text" placeholder="Search..." />
+                    <input id="menu-search-input-submit" class="validSearch" type="submit" value="" />
+                </div>
+
+                <ul id="menu-lateral" class="menu">
+                    {{#if currentUser}}
+                    <li class="icon home">
+                        <a href="/profile">
+                            <span class="menu-li-title">{{_ "My Profile"}}</span>
+                            <img class="menu-li-arrow" src="/img/icons/arrow-forward.png" alt="" />
+                        </a>
+                    </li>
+
+                    <li class="icon home">
+                        <a href="/logout" id="logout">
+                            <span class="menu-li-title">{{_ "Log out"}}</span>
+                            <img class="menu-li-arrow" src="/img/icons/arrow-forward.png" alt="" />
+                        </a>
+                    </li>
+
+                    {{else}}
+                    <li class="icon home">
+                        <a href="/register">
+                            <span class="menu-li-title">{{_ "Register"}}</span>
+                            <img class="menu-li-arrow" src="/img/icons/arrow-forward.png" alt="" />
+                        </a>
+                    </li>
+                    <li class="icon home">
+                        <a href="/login">
+                            <span class="menu-li-title">{{_ "Login"}}</span>
+                            <img class="menu-li-arrow" src="/img/icons/arrow-forward.png" alt="" />
+                        </a>
+                    </li>
+                    {{/if}}
+                {{#each getParent}}
+                    <li id="a-submenu-{{_id}}" class="icon plus sousmenu">
+
+                        <a href="/category/{{_id}}">
+                            <span class="menu-li-title">{{title}}</span>
+                           <img class="menu-li-arrow-submenu" src="/img/icons/submenu.png" alt="" />
+                        </a>
+
+                        <ul id="submenu-{{_id}}" class="deroulant sub-menu" style="display:none;">
+                            {{#each getChildren _id}}
+                                <li id="a-submenu-{{_id}}" class="icon plus sousmenu">
+                                <a href="/category/{{_id}}">
+                                    <span class="menu-li-title">{{title}}</span>
+                                    <img class="menu-li-arrow-submenu"  width="20" height="20" src="/img/icons/submenu.png"  alt="" />
+
+                                   
+                                </a>
+                                 <ul id="submenu-{{_id}}" class="deroulant" style="display:none;">
+                                        {{#each getChildren _id}}
+                                        <li><a href="/category/{{_id}}">
+                                    <span class="menu-li-title">{{title}}</span></a></li>
+                                        {{/each}}
+                                    </ul>
+                            </li>
+                            {{/each}}
+                            
+                        </ul>
+
+                    </li> 
+                    
+                    {{/each}}
+                 
+                </ul> <!-- .menu -->
+
+            </section> <!-- #menu-wrapper -->
+
+            <section id="sidebar-wrapper">
+                <div class="widget">
+                    <!--<h4>Contact widget</h4>-->
+
+                    <ul>
+                        <li class="item"><a href="#" id="price_range">Price Range</a>
+
+                        </li>
+                            <!--panel price range -->
+                            <div class="panel_price_range">
+                                <div class="row priceRange">
+                                    <span class="pull-left" id="min">0 $</span><span class="pull-right" id="max">+100 000000 $</span>
+                                </div>
+                                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100000000" data-slider-step="5" data-slider-value="[0,100000000]" id="sl2" >
+                            </div>
+                        <li class="item"><a href="#" id="brands">Brands</a></li>
+                        <!-- panel brands -->
+                            <div class="panel_brands">
+                                {{#each abc}}
+
+                                    {{#if isBrand this}}
+                                    <a href="" class="alphabet">{{this}}</a> |
+                                    {{else}}
+                                    {{this}} |
+                                    {{/if}}
+                                {{/each}}
+                                <div class="row">
+                                    <div class="col-xs-4" ><h1 id="letterBrand"></h1></div>
+                                    <div class="col-xs-4" id="listBrand">
+                                        
+                                    </div>
+                                    <div class="col-xs-4" id="listBrand2">
+                                        
+                                    </div>
+                                </div>
+                                <br/>
+
+
+                            </div>
+                      <!--  <li class="item"><a href="#" id="advanced">Advanced</a></li>
+                     
+                        <div class="panel_advanced">
+                            <ul>
+                                <li><a href="">Ingredient Preference</a></li>
+                                <li><a href="">Concern</a></li>
+                                <li><a href="#" id="skin_type">Skin Type</a></li>
+                                <div class="panel_skin_type">
+                                    <div class="col-xs-6">
+                                        <p>Brand</p>
+                                        <p>Brand</p>
+                                        <p>Brand</p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>Brand</p>
+                                        <p>Brand</p>
+                                        <p>Brand</p>
+                                    </div>
+                                </div>
+                                <li><a href="#" id="skin_type">Season</a></li>
+                            </ul>
+                        </div>-->
+                    </ul>
+                </div>
+
+
+            </section> <!-- #sidebar-wrapper -->
+
+            <section id="content-wrapper">
+
+                <section id="header">
+
+                    <div id="header-left">
+                          <!--cart================ -->
+                            <ul class="nav nav-pills">
+                                <!-- {{#each getCartView}} -->
+                                <li>
+                                     <p id="a-menu"><img src="/img/icons/menu.png" alt="menu" /></p>
+                                </li>
+                                <li class="dropdown">
+                                    <p class="dropdown-toggle" style="margin:0px;padding:0px;" href="#" data-toggle="dropdown">
+                                        <img src="/images/cart3-01.png" style="margin:0px;padding:0px;" alt=""/> <strong class="caret"></strong></p>
+                                    <ul class="dropdown-menu cart-dropdown">
+                                        {{#each getCartshow}}
+                                        <li class="item-cart">
+                                            <div class="col-lg-6">
+                                                
+                                                <img src="{{getproductimage id_product}}" alt="image" class="img-thumbnail col-sm-12 col-xs-12"> 
+                                               
+                                                
+                                            </div>
+                                            <div class="col-lg-6">
+                                               <span> {{getNameproduct id_product}}</span>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <a id="removeCart" href="#"><i class="fa fa-times"></i></a>
+                                            </div>
+                                        </li>
+                                        
+
+                                        <div class="clearfix" style="margin-bottom: 30px;"></div>
+                                        <li class="hr-item-cart">
+                                            <div class="hr1">
+                                                <div class="col-lg-6">
+                                                    <p class="bolder">Sub Total:</p>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <p class="bolder text-right">{{subtotal}}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {{/each}}
+                                        <div class="clearfix"></div>    
+                                        <li class="hr-item-cart1">
+                                            <div class="hr2">
+                                                <div class="col-lg-6">
+                                                    <p class="bolder">Total:</p>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <p class="bolder text-right">{{getTotol}}</p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <div class="clearfix"></div>
+                                        <li class="hr-item-cart2">
+                                            <div class="hr3">
+                                                <div class="a-checkout">
+                                                    <a href="/checkout"><p>CHECKOUT</p></a>
+                                                </div>
+                                            </div>
+                                        </li> 
+
+                                    </ul>
+                                </li>
+                                <li>
+                                    <p id="favorite" class="fa fa-heart" style="color:red; margin-top:16px; margin-left:10px; cursor:pointer"></p>
+                                </li>
+
+                            </ul>
+                    </div>
+
+                    <div id="header-title">
+                        <h1><img src="/img/icons/logo-01.png" /></h1>
+                    </div>
+
+                    <div id="header-right">
+                        <a href="#" id="a-sidebar">REFINE<!--<img src="/img/icons/menu.png" alt="Sidebar" />--></a>
+                    </div>
+
+                </section> <!-- #header -->
+                
+                <section id="refine_menu" >
+                    {{#with currentCategory}}
+                    <div class="col-xs-12">
+                        <div class="hold_refine">
+                            <div class="row">
+                                <div class="col-xs-4"><a href="#" id="refineCateg" class="active" >{{title}}<span></span></a></div>
+
+                                <div class="col-xs-4" ><a href="" id="refineAll" >All {{title}}<span></span></a></div>
+
+                                <div class="col-xs-4"><a href="">{{title}}</a></div>
+                            </div>
+                            <div id="refineMenu">
+                                <div class="row">
+                                    <ul>
+                                        {{#each getBrothers this}}
+                                            <li><a href="/category/{{_id}}" class="refine_sub">{{title}}</a>
+                        
+                                            </li>
+                                        {{/each}}
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            <div id="refineMenuAll">
+                                <div class="row">
+                                    <ul>
+                                        <li><a href="/category/{{_id}}">All {{title}}</a></li>
+                                        {{#each getChildren _id}}
+                                            <li>{{#if hasChildren _id}}
+                                                <a href="" class="refine_subAll">{{title}}</a>
+                                                <div class="hold_sub_dropdown" width="300px">
+                                                    <ul class="sub_dropdown">
+                                                        {{#if hasChildren _id}}
+                                                            {{#each getChildren _id}}
+                                                                <li>  -  <a href="" class="refine_subAll">{{title}}</a>
+                                               <div class="hold_sub_dropdown" width="300px">
+                                                    <ul class="sub_dropdown">
+                                                        {{#if hasChildren _id}}
+                                                            {{#each getChildren _id}}
+                                                                <li>     -    <a href="" class="refine_subAll">{{title}}</a>
+                                               
+                                                                </li>
+                                                            {{/each}}
+                                                        {{else}}
+                                                        <li>    -    <a href="/category/{{_id}}" >{{title}}</a>
+                                                
+                                                        </li>
+                                                        {{/if}}
+                                                    </ul>
+                                            </div>
+                                                                </li>
+                                                            {{/each}}
+                                                        {{else}}
+                                                        <li>  -  <a href="/category/{{_id}}" >{{title}}</a>
+                                                
+                                                        </li>
+                                                        {{/if}}
+                                                    </ul>
+                                            </div>
+                                            {{else}}
+                                               <a href="/category/{{_id}}" >{{title}}</a>
+                                            {{/if}}
+                                            </li>
+                                        {{/each}}
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/with}}
+                </section> <!-- #refine menu -->
+                
+  {{>yield}}
+  {{>footermobile}}
+
+
+            </section> <!-- #content-wrapper -->
+        </section> <!-- #page-wrapper -->
+
+</template>

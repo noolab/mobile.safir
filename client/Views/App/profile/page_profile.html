@@ -1,0 +1,119 @@
+<template name="profile">
+	<div class="container">
+		<div class="container-box">
+			<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 con-me">
+				<div class="container-box">
+					<div class="col-xs-12 col-sm-12 col-lg-12">
+						<div class="col-xs-6 col-sm-6 col-lg-4">
+							{{#with getprofile}}
+							<img style="border:8px solid #000;" src="/upload/{{getImage image}}" class="img-circle center-block" width="200" height="200"> 
+							{{/with}}
+						</div><br>
+						<div class="col-xs-6 col-sm-6 col-lg-6">
+							<h1 style="font-weight:bold">{{#with getprofile}}{{profile.firstname}} {{profile.lastname}}{{/with}}</h1>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-lg-12">
+						
+						<hr style="border:1px solid #000; margin-top:10px;">
+						<div class="col-xs-12 col-md-6 ">
+							<form class="form-horizontal form_pro" role="form">
+								{{#with getprofile}}
+								{{profile.image}}
+								<div class="form-group">
+									<label class="col-xs-5 col-sm-4 label_pro">{{_ "NAME"}}</label>
+									<div class="col-sm-6">
+										<span style="font-weight:bold">{{profile.firstname}} {{profile.lastname}}</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-5 col-sm-4">{{_ "BIRTH DATE"}}</label>
+									<div class="col-sm-6">
+										<span style="font-weight:bold">{{profile.birth}}</span>
+									</div>
+								</div>
+								<div class="form-group">
+									{{#each emails}}
+									<label class="col-xs-5 col-sm-4">{{_ "EMAIL"}}</label>
+									<div class="col-sm-6">
+										<span style="font-weight:bold">{{address}}</span>
+									</div>
+									{{/each}}
+								</div>
+								<div class="form-group">
+									<label class="col-xs-5 col-sm-4">{{_ "SEX"}}</label>
+									<div class="col-sm-6">
+										<span style="font-weight:bold">{{profile.sex}}</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-5 col-sm-4">{{_ "ADDRESS"}}</label>
+									<div class="col-sm-6">
+										<span style="font-weight:bold">{{profile.address}}</span>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-xs-5 col-sm-4">LIFE STYLE</label>
+									<div class="col-sm-6">
+										<span style="font-weight:bold">Nerd, hard worker , dreamer</span>
+									</div>
+								</div>
+								{{/with}}
+							</form>
+						</div>
+					</div>
+					<div class="clearfix"></div>
+					<div class="col-md-12 ">
+						<a href="/editprofile"><button id="singlebutton" name="singlebutton" class="btn btn-primary pull-right">
+							{{_ "EDIT"}}
+						</button></a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+				<!-- <div class="row">
+					{{#each getquestion}}
+						<div class="col-xs-12 col-sm-4 col-lg-4">
+							<input type="hidden" name="question" value="{{_id}}">
+							<p style="font-size:12px;" class="text-right" >{{name}}</p>
+							<div class="form-group">
+	                            <label>Answer</label>
+	                            <input class="form-control" id="answer[]" name="answer" value="{{getAnswer _id}}">
+	                        </div>
+						</div>
+					{{/each}}
+				</div> -->
+				<!-- <div class="col-8 pull-right">
+					<button type="button" class="btn btn-primary" id="btn-answer" style="font-size:14px;">Save Answer</button>
+				</div> -->
+				<br><br>
+				<!-- add questions and answers here-->
+				<div class="col-xs-12">
+					<div class="hr" style="margin-top:20px;"></div>
+				</div>
+				<div class="col-xs-12">
+					<h5 class="h5_bold">COMPLÉTEZ LES QUESTION POUR ÊTRE MIEUX CONSEILLÉ</h5>
+				</div><br><br>
+				<!-- questions -->
+				<div class="row">
+					{{#each getquestion}}
+					<div class="col-xs-12 col-sm-4 col-lg-4">
+						<input type="hidden" name="question" value="{{_id}}">
+						<p style="font-size:12px;" class="text-right" >{{name}}</p>
+						<div class="form-group">
+							<label>Answer</label>
+							<input class="input_answer" id="answer[]" name="answer" value="{{getAnswer _id}}">
+						</div>
+					</div>
+					{{/each}}
+				</div>
+				<div class="col-8 pull-right">
+					<button type="button" class="btn btn-primary" id="btn-answer" style="font-size:14px;">Save Answer</button>
+				</div>
+				<br><br>
+				<!-- end -->
+			</div>
+			<!-- end -->
+		</div>
+	</div>
+</template>

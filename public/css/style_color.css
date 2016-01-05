@@ -1,0 +1,138 @@
+
+.w_nav2{
+	/*padding: 20px;*/
+}
+.w_nav2  li{
+	line-height: 1.5em;
+	display: inline-block;
+}
+.w_nav2 li a{
+	display: block;
+	padding: 14px;
+	list-style: none;
+	text-decoration: none;
+}
+.w_nav2 li a.color1{
+	
+	width: 60px;
+	height: 60px;
+}
+.w_nav2 li a.color2{
+	background:	#e7705e;
+	border-radius: 50%;
+}
+.w_nav2 li a.color3{
+	background:	#e75e5e;
+	border-radius: 50%;
+}
+.w_nav2 li a.color4{
+	background:	#e7345e;
+	border-radius: 50%;
+}
+.w_nav2 li a.color5{
+	background:	#e70f5e;
+	border-radius: 50%;
+}
+.w_nav2 li a.color6{
+	background:	#e71e2c;
+	border-radius: 50%;
+}
+.w_nav2 li a.color7{
+	background:	#e7082b;
+	border-radius: 50%;
+}
+.w_nav2 li a.color8{
+	background:	#e72894;
+	border-radius: 50%;
+}
+
+.sky-form .label {
+	display: block;
+	margin-bottom: 6px;
+	line-height: 19px;
+}
+.w_sidebar h3{
+	padding:0 20px 10px;
+	font-size: 1em;
+	color: #555555;
+	text-transform:uppercase;
+}
+/* radios and checkboxes */
+.sky-form {
+	margin-top: -25px;
+	border-radius: 50%;
+}
+.row1 {
+    outline: none;
+    padding: 20px;
+    overflow: auto;
+    height: 155px;
+}
+.row2 {
+	height: 175px;
+}
+.sky-form.col.col-4 ul {
+	padding: 0;
+	list-style: none;
+}
+.sky-form h4{
+	margin-top: 10px;
+	background: #ECECEC;
+	padding: 15px 20px;
+	color: #000;
+	text-transform: uppercase;
+	margin-bottom: 0;
+	font-size:16px;
+	font-family: 'Lora-Regular';
+}
+.sky-form section {
+	margin-bottom: 20px;
+}
+.sky-form .label {
+	display: block;
+	margin-bottom: 6px;
+	line-height: 19px;
+}
+.sky-form .label.col {
+	margin: 0;
+	padding-top: 10px;
+}
+.sky-form .input,
+.sky-form .select,
+.sky-form .textarea,
+.sky-form .radio,
+.sky-form .checkbox,
+.sky-form .toggle,
+.sky-form .button {
+	position: relative;
+	display: block;
+}
+/* selects */
+.sky-form .select i {
+	position: absolute;
+	top: 14px;
+	right: 14px;
+	width: 1px;
+	height: 11px;
+	background: #fff;
+	box-shadow: 0 0 0 12px #fff;
+}
+.sky-form .select i:after,
+.sky-form .select i:before {
+	content: '';
+	position: absolute;
+	right: 0;
+	border-right: 4px solid transparent;
+	border-left: 4px solid transparent;
+}
+.sky-form .select i:after {
+	bottom: 0;
+	border-top: 4px solid #404040;
+}
+.sky-form .select i:before {
+	top: 0;
+	border-bottom: 4px solid #404040;
+}
+.sky-form .select-multiple select {
+	height: auto;
+}

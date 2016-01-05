@@ -1,0 +1,28 @@
+<template name="review">
+
+
+    
+ <div class="row">
+                           <div class="col-sm-12">
+                              <div class="col-sm-5 pull-left space-top-detail2">
+                               <img src="/upload/{{getImgUrl user}}" class="/img-responsive">
+                              </div>
+                               <div class="col-sm-5 pull-left space-top-detail2">
+                                 <h4>{{getUsername user}}</h4>
+                                 <p class="no-margin">{{getDate date}}</p>
+                                 
+                              </div>
+                              <div class="col-sm-2 pull-right space-top-detail2">
+                               <h3><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>&nbsp;{{grade}}/5</h3> 
+                              </div>
+                              <div class="col-sm-12">
+                                 <p class="pull-left space-top-detail3"><strong>{{title}}</strong><br />
+                  {{comment}}</p>
+                                 <div class="pull-left border-detail">   
+                                 </div>
+                              </div>
+                           </div>  
+                        </div>
+
+
+</template>

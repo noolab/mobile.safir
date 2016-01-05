@@ -1,0 +1,52 @@
+<template name="tutodetails">
+		<!-- Start contain -->
+  <section class="shadow_bottom" >
+  {{#with getTutodetails _id}}
+      <div class="container" id="space_cont_top"  >		
+		  <div class="clearfix"></div>
+           <div class="space_cont_top">
+           <div class="col-md-12">
+           </div>
+           <div class="col-md-7">
+			  <h1 class="txt-color" >{{title}}</h1><br>
+			  <iframe width="490" height="370" src="{{url}}" frameborder="0" allowfullscreen="allowfullscreen" data-link="{{url}}"></iframe>
+			  <div class="share-control" style="padding-top:10px; padding-bottom:50px">
+			 	 <div class="col-md-4"> 
+				  </div>
+				  <div class="col-md-3">
+				   <a href=""><p class="txt-tuto-sm" ><i class="fa fa-share-alt">&nbsp; &nbsp;</i>Partager</p> </a>
+				  </div>
+				  <div class="col-md-5">
+				  <p class="txt-tuto-sm1"><i class="fa fa-heart-o">&nbsp; &nbsp;</i>132 personnent aiment</p>
+				  </div>
+				  <div class="col-md-12 row share-control">
+				  	<p class="p-font-sm">{{{content}}}</p>
+				  </div>
+			  </div> 	
+		
+           </div>
+
+           <div class="col-md-5" style="padding-top:40px;">
+           {{#each getRelated}}
+               <div class="row space-row-tuto div_hover">
+	             <div class="col-md-5">
+	             	<iframe width="150" height="113" src="{{url}}" frameborder="0" allowfullscreen="allowfullscreen" data-link="{{url}}"></iframe>
+	             </div>
+				 <div class="col-md-7">
+				  	<h4 class="h4-bold-tuto">{{title}}</h4>
+				  	<p class="p-font-sm">
+				  	{{{content}}}
+				  	</p>
+				 </div>
+			   </div>
+			   {{/each}}
+           </div>
+
+	   </div>
+     </div>
+     {{/with}}
+    </section>
+    <br>
+    {{> commentSubmit}}
+ <!-- end contain -->
+</template>

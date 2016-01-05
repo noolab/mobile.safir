@@ -1,0 +1,74 @@
+<template name="checkout">
+ 
+<section class="shadow_bottom" id="checkout">
+	<div class="container">
+			
+			<h1 class="content-text-review">Checkout</h1>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-12">
+					<table class="table table-striped">
+					    <thead>
+					      <tr>
+					        <th>Image</th>
+					        <th>Product Name</th>
+					        <th>Shop</th>
+					        <th>Qty</th>
+					        <th>Price</th>
+					        <th>subtotal</th>
+					        <th>Tools</th>
+					      </tr>
+					    </thead>
+					    <tbody>
+					    {{#each getCart}}
+					      <tr>
+					        <td>{{#with getProductInfo id_product}}<a href="/details/{{_id}}"><img src="/upload/{{getImg image}}" class="img-responsive" style="width:70px; height:70px;"></a>{{/with}}
+					        </td>
+					        <td>
+					        	{{#with getProductInfo id_product}}{{title}}{{/with}}
+					        </td>
+					        <td>
+					        	{{getShopName shopId}}
+					        </td>
+					        <td>
+					        	<input type="text" style="color:black;width:30px;" class="qty" value="{{quantity}}" />
+					        </td>
+					        <td>
+					        	{{#with getProductInfo id_product}}{{price}}{{/with}}
+					        </td>
+					        <td>
+					        	{{subtotal}}
+					        </td>
+					        <td>
+					        	<a href="#" id="removeCheckOut" class="fa fa-times" style="color:black;"></a>
+
+					        </td>
+					      </tr>
+					  	{{/each}}
+					  	<tr>
+					  		<td colspan="5" align="right">
+					  			<strong>Total</strong>
+					  		</td>
+					  		<td colspan="2" align="center">
+					  			<strong>{{getTotal}}</strong>
+					  		</td>
+					  	</tr>
+					    </tbody>
+					  </table>
+					
+					
+					
+
+				</div>
+					<div class="row">
+						<hr><div class="pull-right" style="padding-right:15px;"><input type="button"  class="btn btn-primary" id="btnAdd" style="background:#000;" value="Proceed Order"></div>
+					</div>
+				</div>
+				<div class="col-md-3">
+				
+				</div>
+			</div>
+	</div>
+</section>
+
+</template>

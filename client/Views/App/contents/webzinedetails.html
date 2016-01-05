@@ -1,0 +1,66 @@
+<template name="webzinedetails">
+<section class="webzine">
+<div class="container">
+<div class="row">
+<h2 class="text-center bold">{{title}}</h2>
+		<div class="group">
+		    <div class="right">
+		        <img src="/uploads/{{getImg image}}" class="center-block img-responsive" style="width:400px; height:350px ">
+		    </div><br>
+		     <div class="left">
+		       <p class="cetner-block p-pad">{{{content}}}</p>
+		    </div>
+	   	 </div>
+	</div>
+	<hr class="under-p-pad">
+	<div class="clearfix"></div>
+				<div class="mode-lips" style="background-color: #ebebea; overflow:hidden;">
+					<div class="lips-box">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						    <div class="row h1-pad" style="margin-left:15px;">
+						 
+							<h1>ARTICLE ABOUT {{title}}</h1>
+							
+						</div>
+							<div class="on-lips">
+								<div class="col-md-6 col-lg-6">
+								   <img src="/uploads/{{getImg image}}" class="img-responsive space-img" style="width:300px; height:200px ">
+								</div>
+								<div class="col-md-6 col-lg-6">
+									<div class="text-artical space-text">
+									 	<h2 class="bold">{{title}}</h2>
+									 	<p class="space-arctical bold">{{{content}}}</p>
+									</div> 
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>	
+			<div class="clearfix"></div>
+			<br>
+		<div class="clearfix"></div>
+				<div class="forum-lips" style="background-color: #ebebea; overflow:hidden;">
+					<div class="lips-box">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+						    <div class="row h1-pad" style="margin-left:15px;">
+							<h1>RELATED PRODUCTS</h1>
+						</div>
+						<br>
+							<div class="on-lips">
+								<div class="row"> 
+								
+								{{#each related_product category}}
+								  <div class="col-md-3">
+								    <a href="{{pathFor 'details' id=_id}}"><img style="border:8px solid #000" src="/uploads/{{getImg image}}" class="img-circle center-block" alt="Cinque Terre" width="150" height="150" ></a>
+									<p class="rel-title"><a href="{{pathFor 'details' id=_id}}">{{title}}</a></p>
+									<h3 class="text-center" style="font-weight:bold;font-size:1em;">{{price}}</h3>
+								  </div>
+								 {{/each}}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+</div>
+</section>
+</template>

@@ -1,0 +1,73 @@
+
+<template name="listproducts">
+    <style type="text/css">
+        .hidelike{
+            display: none;
+        }
+        .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+    </style>
+    
+        <div class="container">
+            <div class="row">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        {{#each products}} 
+                        <div class="swiper-slide">
+                            <div class="thumbnail">
+                                <a href="{{pathFor 'details' id=_id}}" class="title"><img data-holder-rendered="true" src="/upload/{{getImg image}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> </a>
+                          
+                                <div> 
+                                    <p class="text-center text-selling-detail"><a href="{{pathFor 'details' id=_id}}" class="title">{{title}}</a></p> 
+                                    <h3 class="text-center price-selling"><a href="{{pathFor 'details' id=_id}}" class="title">{{price}} </a>
+                                        <a href="#" id="unlike">
+                                            <span id="unlike{{_id}}" class="fa fa-heart" aria-hidden="true"></span>
+                                        </a>
+                                        <a href="#" id="like" style="color:red;">
+                                            <span id="like{{_id}}" class="fa fa-heart hidelike" aria-hidden="true"></span>
+                                        </a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <!-- Add Pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                
+            </div>
+        </div>
+        
+
+    
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        spaceBetween: 30,
+        autoplay:5000
+    });
+    </script>
+</template>
