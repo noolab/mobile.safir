@@ -34,7 +34,7 @@
                                 <a href="{{pathFor 'details' id=_id}}" class="title"><img data-holder-rendered="true" src="/upload/{{getImg image}}" data-src="holder.js/100%x200" alt="100%x200" width="50" /> </a>
                           
                                 <div> 
-                                    <p class="text-center text-selling-detail"><a href="{{pathFor 'details' id=_id}}" class="title">{{title}}</a></p> 
+                                    <p class="text-center text-selling-detail"><a href="{{pathFor 'details' id=_id}}" class="title">{{limitText title}}</a></p> 
                                     <h3 class="text-center price-selling"><a href="{{pathFor 'details' id=_id}}" class="title">{{price}} </a>
                                         <a href="#" id="unlike">
                                             <span id="unlike{{_id}}" class="fa fa-heart" aria-hidden="true"></span>

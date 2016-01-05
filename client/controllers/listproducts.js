@@ -65,6 +65,12 @@ Template.listproducts.helpers({
 		var shop = shops.findOne({_id:id });
 		if( shop ) return shop.name; 
 	},
+	limitText:function(title){
+		//alert('mytitle:'+title);
+		var length = 30;
+		var trimmedString = title.substring(0, length);
+		return trimmedString+"...";
+	}
 
 });
 
