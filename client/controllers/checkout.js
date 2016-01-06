@@ -147,31 +147,28 @@ Template.confirmorder.events({
 			var addresses=address1
 		}
 		//alert(addresses);
-		
 		var obj = {
 			address:addresses
 		}
-		
-	
 		Meteor.call('updateOrder',id,obj);
-		alert('successful change');
+		Router.go("/confirmorder2");
 	
-	},
-	'click #btnAdd':function(e){
-		e.preventDefault();
-		Router.go("/confirmorder");
 	}
+	// 'click #btnAdd':function(e){
+	// 	e.preventDefault();
+	// 	Router.go("/confirmorder");
+	// }
 });
 Template.confirmorder2.events({
 	'submit form':function(e){
 		e.preventDefault();
 		var idorder = Session.get('orderId');
-		alert(idorder);
 		var delivery = $('#sel1').val();
 		var obj = {
 			deliverytype:delivery
 		}
 		Meteor.call('updateOrder',idorder,obj);
-		alert('successful updated');
+		alert('Successful Ordered!, Thank You!');
+		Router.go("/");
 	}
 });
