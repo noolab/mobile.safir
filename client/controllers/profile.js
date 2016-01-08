@@ -25,11 +25,13 @@ Template.editprofile.helpers({
 	},
     getImage1:function(){
         var id = Meteor.userId();
-        var profile = Meteor.users.find({_id:id});
+        var profile = Meteor.users.findOne({_id:id});
+        //alert('profile:'+JSON.stringify(profile));
         return profile;
         //console.log(profile+'UserId'+id);
     },
      getImage: function(id){
+            //alert(id);
             var img = images.findOne({_id:id});
             if(img){
                 console.log(img.copies.images.key);
@@ -100,9 +102,15 @@ Template.editprofile.events({
           images.insert(files[i], function (err, fileObj) {
             // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
             Session.set('ADDAVATAR',fileObj._id);
+            var obj={
+            image:fileObj._id
+            }
+            Meteor.call('editprofile',Meteor.userId(),obj);
+
 
           });
         }
+        
     }
 });
 Template.profile.events({
