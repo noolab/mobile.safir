@@ -1,35 +1,66 @@
 <template name="searchproduct">
-	<article>
+
+{{#if displayproduct}}
 	<h1>Products</h1>
-	
-                	<div class="wrapper">
-                        <p class="text-selling-top">{{nbproducts}} products</p>
-                        <p class="text-selling-second">Best selling <a href=""><span class="glyphicon glyphicon-play" aria-hidden="true"></span></a></p>
-                        <!--<div class="row">-->
-                        <div class="row">
-                        {{#each products}}
-                        <div class="col-xs-6">
-                                <div class="thumbnail">
-                                    <a href="{{pathFor 'details' id=_id}}" class="title"><img data-holder-rendered="true" src="/upload/{{getImg image}}" data-src="holder.js/100%x200" alt="100%x200" class="img-circle" width="50" /> </a>
-                                    <div class="caption"> 
-                                        <p class="text-center text-selling-detail"><a href="{{pathFor 'details' id=_id}}" class="title">{{title}}</a></p> 
-                                        <h3 class="text-center price-selling"><a href="{{pathFor 'details' id=_id}}" class="title">{{price}} </a><a href=""><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span></a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        {{/each}}
-                            
-                           
-                        </div>
-</div>
-                   <!-- </div> -->
-                
+	<div class="container">
+			
+				<div class="col-md-12">
+					<div class="hold_result">
+						<p>{{nbproducts}} products result</p>
+					</div>
+					<div class="hold_bradcame">
+						<p class="pull-left green">Best selling <span class="fa fa-caret-right"></span></p>
+						<p class="pull-right black">View by page</p>
+					</div>
+
+		<div class="hold_product">
+			
+				{{#each product}}
+				
+
+				<div class="col-xs-6 col-md-3 product_item">
+						<div class="thumbnail text-left">
+								<div class="clearfix" style="width: 100%; margin-bottom:10px; height:200px">
+										<a href="{{pathFor 'details' id=_id}}" title="{{title}}">
+											<img src="/upload/{{getImg image}}" class="img-responsive " width="200" height="150">
+										</a>
+									</div>
+
+
+									<div class="clearfix" style="width: 100%;height:45px;line-height:90%;">
+										<a href="{{pathFor 'details' id=_id}}" class="title">{{title}}</a>
+									</div>
+									<div class="clearfix text-center" style="width: 100%; height: 30px; overflow: hidden;">
+										<a href="{{pathFor 'details' id=_id}}" class="price">{{price}} </a><a href="" class="price" >
+			{{#if isLiked _id}}  
+			<span class="fa fa-heart red pull-right" style="padding-left:4px;" id="favorite"></span>
+			{{else}}
+			<span class="fa fa-heart-o pull-right" style="padding-left:4px;" id="favorite"></span>
+			{{/if}}
+			</a>
+									</div>
+
+
+								</div>
+							</div>
+				{{/each}}
+				
+			
+		</div>
+				</div>		
+		</div>
+{{/if}}
+
+{{#if displayContent}}
 		<h1>Contents</h1>
 	<div class="container">
 		<div class="hold_result">
 						<p>{{nbcontents}} contents results</p>
 		</div>
-				
+		<!-- {{#each content}}
+			{{title}}<br />
+		{{/each}} -->
+					
 	</div>
 	{{#each content}}
 	<div class="container">
@@ -50,7 +81,6 @@
 		</section>
 		{{/each}}
     
-
-</article>
+{{/if}}
 
 </template>
