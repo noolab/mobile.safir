@@ -4,5 +4,8 @@ Meteor.methods({
   },
   deleteFavorite:function(attr){
     favorite.remove({"proId":attr});
+  },
+  reviewtFavorite:function(attr){
+    favoritereview.insert(attr);
   }
 });

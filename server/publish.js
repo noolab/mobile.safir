@@ -86,3 +86,6 @@ Meteor.publish('attribute_value', function (){
    Meteor.publish("order", function () {
     return order.find({});
 });
+Meteor.publish('favoritereview', function (){ 
+  return favoritereview.find({});
+});

@@ -26,3 +26,4 @@ Meteor.subscribe("membershipcard");
 Meteor.subscribe("list_product");
 Meteor.subscribe("attribute_value");
 Meteor.subscribe("order");
+Meteor.subscribe("favoritereview");

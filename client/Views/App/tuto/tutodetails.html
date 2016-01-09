@@ -17,7 +17,7 @@
 				   <a href=""><p class="txt-tuto-sm" ><i class="fa fa-share-alt">&nbsp; &nbsp;</i>Partager</p> </a>
 				  </div>
 				  <div class="col-md-5">
-				  <p class="txt-tuto-sm1"><i class="fa fa-heart-o">&nbsp; &nbsp;</i>132 personnent aiment</p>
+				  <p class="txt-tuto-sm1"><span id="unlike"><a href="#" id="unlike{{_id}}"><i class="fa fa-heart-o ">&nbsp; &nbsp;</i></a></span><span id="like"><a href="#" style="color:red;" id="like{{_id}}" class="fanone"><i class="fa fa-heart">&nbsp; &nbsp;</i></a></span>5 personnent aiment</p>
 				  </div>
 				  <div class="col-md-12 row share-control">
 				  	<p class="p-font-sm">{{{content}}}</p>
@@ -26,7 +26,7 @@
 		
            </div>
 
-           <div class="col-md-5" style="padding-top:40px;">
+           <div class="col-md-5" style="padding-top:40px;"> 
            {{#each getRelated}}
                <div class="row space-row-tuto div_hover">
 	             <div class="col-md-5">
