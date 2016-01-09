@@ -41,12 +41,31 @@
 			   </div>
 			   {{/each}}
            </div>
+<div class="col-md-12">
+          
+          {{#if currentUser}}
+            {{>addreview}}
+          {{/if}}
+           <!--  {{#each getReviews review filterReview removeFilter}}
+              {{>review}}
+            {{else}}
+                          <i>No reviews</i>
+            {{/each}} -->
 
+          <div class="pull-right">
+              <h3 id="show1">{{_ "MORE REVIEWS"}} &nbsp; <i class="fa fa-angle-down" id="btnMore"></i></h3>   
+          </div>
+          <div class="wrapper_forum">
+            <div class="filter_set">
+        
+            </div>
+          </div>
+        </div>
 	   </div>
      </div>
      {{/with}}
     </section>
     <br>
-    {{> commentSubmit}}
+    
  <!-- end contain -->
 </template>

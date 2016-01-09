@@ -1,4 +1,5 @@
 <template name="add_review">
+<form role="form">
 <a href="" id="bt_review">Add review</a>
 <div id="add_review" style="display: none;">
 <table>
@@ -9,7 +10,7 @@
 </tr>
 <tr>
 	<td>Review</td>
-	<td><textarea rows="4" cols="50" id="comment">
+	<td><textarea rows="4" cols="50" id="comment{{_id}}">
 
 </textarea></td>
 </tr>
@@ -31,4 +32,5 @@
 
 </table>
 </div>
+</form>
 </template>
