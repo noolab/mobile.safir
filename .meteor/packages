@@ -39,4 +39,6 @@ mrt:fs
 npm-container
 tap:i18n
 lsun:ckeditor
-swiper:swiper
+zardak:soap
+tap:i18n-db
+http

@@ -21,12 +21,15 @@ Template.addContent.events({
 		console.log("Inserted");
 	},
 	'change #image': function(event, template) {
-    var files = event.target.files;
-    for (var i = 0, ln = files.length; i < ln; i++) {
-      images.insert(files[i], function (err, fileObj) {
-        // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
-		Session.set('ADDIMAGEID', fileObj._id);
-	  });
+		event.preventDefault();
+	    var files = event.target.files;
+	    for (var i = 0, ln = files.length; i < ln; i++) {
+	      images.insert(files[i], function (err, fileObj) {
+	      	console.log('inserted image: '+fileObj);
+	      	console.log('error:'+JSON.stringify(err));
+	        // Inserted new doc with ID fileObj._id, and kicked off the data upload using HTTP
+			Session.set('ADDIMAGEID', fileObj._id);
+		 });
     }
   }
 });
@@ -77,6 +80,7 @@ Template.updateContent.events({
 		//alert(this.image);
 		event.preventDefault();
         var id=this.image;
+        alert(id);
             images.remove(id, function(err, file) {
             if (err) {
               console.log('error', err);
@@ -118,18 +122,17 @@ Template.webzinelisting.helpers({
 		if( i <= 1 ) return false;
 		else return true;
 	},
-	getImage: function(id){
-        var img = images.findOne({_id:id});
-        alert(img);
-        if(img){
-            console.log(img.copies.images.key);
-            return img.copies.images.key;
-        }else{
-            return;
-        }
+	     getImage: function(id){
+            var img = images.findOne({_id:id});
+            if(img){
+                console.log(img.copies.images.key);
+                return img.copies.images.key;
+            }
+            else{
+                return;
+            }
     }
 });
-
 Session.set("commentValidation","");
 Template.webzinedetails.helpers({
 	related_product: function( categoryId ){
@@ -150,6 +153,10 @@ Template.webzinedetails.helpers({
 	getUsername: function( userid ){
 		var user = users.findOne(userid);
 		if( user ) return user.profile.firstname+' '+user.profile.lastname
+	},
+	getarticle: function(){
+		var article = contents_type.findOne({_id:this.typeid}).type;
+		return article;
 	}
 });
 Template.webzinedetails.events({
@@ -281,14 +288,15 @@ Template.managecontent.helpers({
 		var id = this.category;
 		return categories.findOne({_id:id}).title;
 	},
-	getImage: function(id){
-        var img = images.findOne({_id:id});
-        if(img){
-            console.log(img.copies.images.key);
-            return img.copies.images.key;
-        }else{
-            return;
-        }
+	getImg: function(id){
+            var img = images.findOne({_id:id});
+            if(img){
+                console.log(img.copies.images.key);
+                return img.copies.images.key;
+            }
+            else{
+                return;
+            }
     }
 });
 //Remove all content
@@ -304,8 +312,8 @@ Template.showwebzine.events({
 		var id = this._id;
 		return contents.remove({_id:id});
 	}
-});*/
-/*
+});
+
 Template.showtuto.events({
 'click #remove':function(){
 		var id = this._id;
@@ -322,7 +330,7 @@ Template.showlooks.events({
 //show Webzine
 Template.showwebzine.helpers({
 	getWebzine: function(){
-		return contents.find({"typeid":"ZwarAPwhFaf3acLuM"});
+		return contents.find({"type":"Webzine"});
 	},
 	getTypename: function(){
 		var id =this.typeid;
@@ -336,7 +344,7 @@ Template.showwebzine.helpers({
 //show Tuto
 Template.showtuto.helpers({
 	getTuto: function(){
-		return contents.find({"typeid":"tCvBRhhfJ7PvTHBh7"});
+		return contents.find({"type":"Tuto"});
 	},
 	getTypename: function(){
 		var id =this.typeid;
@@ -350,7 +358,7 @@ Template.showtuto.helpers({
 //show Looks
 Template.showlooks.helpers({
 	getLooks: function(){
-		return contents.find({"typeid":"tCvBRhhfJ7PvTHBh8"});
+		return contents.find({"type":"Looks"});
 	},
 	getTypename: function(){
 		var id =this.typeid;
@@ -361,18 +369,15 @@ Template.showlooks.helpers({
 		return categories.findOne({_id:id}).title;
 	}
 });
+
 */
 
-Template.tutonew.helpers({
-	getTutoCategory:function(){
-		//var type=contents_type.findOne({"type":"Tuto"});
-		return categories.find();
-	}
-});
 Template.tutolisting.helpers({
 	getContent:function(id){
 		var type=contents_type.findOne({type:"Tuto"});
 		//console.log('makar:'+type._id+'categoryId:'+id);
+
+		console.log('Displaying tuto');
 		var string=type._id+':'+id;
 		Session.set('Tuto',string);
 		return contents.find({category:id},{typeid:type._id});
