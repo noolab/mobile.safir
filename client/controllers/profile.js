@@ -26,6 +26,10 @@ Template.editprofile.helpers({
     getImage1:function(){
         var id = Meteor.userId();
         var profile = Meteor.users.findOne({_id:id});
+<<<<<<< HEAD
+=======
+
+>>>>>>> eade0cde050bb513e3372b140b20f2a371e175a6
         return profile;
         //console.log(profile+'UserId'+id);
     },
