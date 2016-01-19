@@ -1,6 +1,6 @@
 <template name ="webzinelisting"> 
-	<div id="wrapper">
-		{{#with webzine1}}
+
+		{{#each webzine1}}
 			<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -17,7 +17,7 @@
 					<h2 class="text-center bold"><a href="{{pathFor 'webzinedetails' id=_id}}">{{title}}</a></h2>
 					<div class="mode-img">
 					<a href="{{pathFor 'webzinedetails' id=_id}}">
-						<img src="/uploads/{{getImage image}}" class="center-block img-responsive" style="width:450px; height:350px "></a>
+						<img src="uploads/{{getImage image}}" class="center-block img-responsive" style="width:450px; height:350px "></a>
 					</div><br>
 					<div class="mode-description" style="font-weight:bold;font-size:15px">
 						<p class="center-block">{{{content}}}</p>
@@ -29,7 +29,7 @@
 		<section id="not-line-straight">
 			<img src="/images/line1.jpg" class="img-responsive">
 		</section>
-		{{/with}}
+		{{/each}}
 		{{#each webzineall}}
 			  {{#if isFirstWebzine}}
 			  <div class="container">
@@ -56,7 +56,4 @@
 			</div>
 			{{/if}}
 		{{/each}}
-		
-
-</div>
 </template>

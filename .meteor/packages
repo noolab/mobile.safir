@@ -38,6 +38,12 @@ mrt:fs
 npm-container
 tap:i18n
 lsun:ckeditor
+<<<<<<< HEAD
 tap:i18n-db
 http
 swiper:swiper
+=======
+zardak:soap
+tap:i18n-db
+http
+>>>>>>> 6ce5a4172fc1b81f1e9f2445ca58944db6765407

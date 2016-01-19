@@ -19,7 +19,7 @@ Template.login.helpers({
 	}
 })
 Template.login.events({
-    'click .btn_login': function(event,tpl){
+    'submit form': function(event,tpl){
         event.preventDefault();
 		//alert("login");
         var email = $('[name=email]').val();

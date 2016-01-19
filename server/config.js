@@ -1,6 +1,4 @@
 
-
-
 fullpath=process.env.PWD;
   console.log('linux path:'+fullpath);
   if( typeof fullpath == 'undefined' ){
@@ -40,4 +38,3 @@ Router.map(function() {
     return baseDir;
    },
  });
-
