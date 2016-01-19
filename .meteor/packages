@@ -32,11 +32,12 @@ twbs:bootstrap
 peppelg:bootstrap-3-modal
 rajit:bootstrap3-datepicker
 froala:editor-reactive
-meteorhacks:npm
 mrt:fs
 
 
 npm-container
 tap:i18n
 lsun:ckeditor
+tap:i18n-db
+http
 swiper:swiper
