@@ -1,40 +1,41 @@
 <template name="register">
-<!-- 	<div class="wrapper" style="background:url('../images/bg_popup-01.png') no-repeat center center;"> -->
 <div class="wrapper">
 	<div class="col-xs-12">
 		<form class="bg_login center-block" method="post">
 			<div class="text-center title-form">
 				<a href="/login"><button class="login">{{_ "Login"}}</button></a>
 					<span class="or">or</span>
-				<button class="registers">{{_ "Register"}}</button>
+				<!-- <button class="registers">{{_ "Register"}}</button> -->
+				<button type="submit" class="registers">{{_ "Register"}}</button>
 			</div> 
+			<!-- <div class="register_msg" style="margin-top:10px;color:red"></div> -->
 			<div class="col-xs-12 form-group">	
 				<label class="lable_input">{{_ "Username"}}</label>
-					<input class="long_form reg-username" name="username" >
+					<input class="long_form reg-username" name="username" required>
 			</div>
 			<div class="col-xs-12 form-group">	
 			  	<label class="lable_input">{{_ "First name"}}:</label>
-					<input class="short_form" name="fname" >
+					<input class="short_form" name="fname" required>
 			</div>
 			<div class="col-xs-12 form-group">	
 			  	<label class="lable_input">{{_ "Last name"}}:</label>
-					<input class="short_form" name="lname" >
+					<input class="short_form" name="lname" required>
 			</div>
 			<div class="col-xs-12 form-group">	
 			  	<label class="lable_input" for="pays">Pays:</label>
-					<input class="short_form" name="pays" >
+					<input class="short_form" name="pays" required>
 			</div>
 			<div class="col-xs-12 form-group">	
 			  	<label class="lable_input">{{_ "Ville"}}:</label>
-					<input class="short_form" name="ville" >
+					<input class="short_form" name="ville" required>
 			</div>
 			<div class="col-xs-12 form-group">	
 			  	<label class="lable_input">{{_ "Email"}}:</label>
-					<input class="long_form" name="email" >
+					<input type="email" class="long_form" name="email" required>
 			</div>
 			<div class="col-xs-12 form-group">	
 			  	<label class="lable_input">{{_ "Password"}}:</label>
-					<input class="long_form" name="password" type="password">
+					<input class="long_form" name="password" type="password" required>
 					<br>
 			</div>
 		  	<div class="col-xs-12">

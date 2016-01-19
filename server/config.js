@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> eade0cde050bb513e3372b140b20f2a371e175a6
-
 
 fullpath=process.env.PWD;
   console.log('linux path:'+fullpath);
@@ -43,7 +38,3 @@ Router.map(function() {
     return baseDir;
    },
  });
-<<<<<<< HEAD
-=======
-
->>>>>>> eade0cde050bb513e3372b140b20f2a371e175a6
