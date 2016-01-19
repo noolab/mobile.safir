@@ -42,18 +42,20 @@
                               </div>
                               
                                 <div class="col-sm-12" style="padding:30px;" >
+                                  
                                   <form role="form" id="cart" style="padding:0px;margin:0px;">
                                     <label  >Select Shop</label>
-                                    <select class=" col-xs-12 col-sm-12" name="shop" required>
+                                    <select class=" col-xs-12 col-sm-12" name="shop" id="shop">
                                       <option value="">Please Select</option>
                                       {{#each getShop shop}}
                                         <option value="{{_id}}">{{name}}</option>
                                       {{/each}}
                                     </select>
-                                  
-                                  <input type="submit" class="btn_addtocard pull-left" value="Add to cart" style="margin-top:15px; background-color:#dd2a1b;">
+                                  <input type="submit" id="add_tocart" class="btn_addtocard pull-left" value="Add to cart" style="margin-top:15px; background-color:#dd2a1b;">
                                    </form>
+
                                   <h2 class="pull-right">{{price}}</h2>
+                                   <div class="cartmsg pull-left" style="margin-top:10px;color:red"></div>
                                 </div>
                              
                             </div>
@@ -72,17 +74,17 @@
                    <section class="shadow_bottom" id="produst_listing">
     <div class="container">
       <div class="row">
-        <h1 class="content-text-review">{{_ "REVIEWS & FEEDBACKS"}}</h1>
+        <h1 class="content-text-review" id="hideshow" style="cursor:pointer">{{_ "REVIEWS & FEEDBACKS"}}</h1>
         <div class="clearfix"></div>
         <div class="col-md-12">
           <div class="hold_btn_filter_view">
             <div class="pull-right">
-              <button class="btn btn-filter-view" type="button" id="input">
+              <button class="btn btn-filter-view hideshow" type="button" id="input">
               <i class="fa fa-search"></i> {{_ "FILTER REVIEWS"}}</button>  
             </div>
           </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12" id='contentfilter'>
           
           {{#if currentUser}}
             {{>addreview}}
@@ -145,9 +147,13 @@
 $('.octofilter-link').click(function() {
     alert( "HOPP" );
     console.log("TRIGGER");
-    
 
   });
+ jQuery(document).ready(function(){
+        jQuery('#hideshow').on('click', function(event) {        
+             jQuery('#contentfilter').toggle('show');
+        });
+    });
     var galleryTop = new Swiper('.gallery-top', {
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',

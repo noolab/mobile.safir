@@ -199,7 +199,7 @@ Template.addproduct.events({
 	'click .remove': function(e,tpl){
 		$(e.currentTarget).parent().parent().remove();
 	},
-	'click #addshop': function(e,tpl){
+	/*'click #addshop': function(e,tpl){
 		var html = "";
 		var instock = ($("#instock").val()!="")? parseInt($("#instock").val()):"";
 		var value= $("#myshop").val();
@@ -231,7 +231,7 @@ Template.addproduct.events({
 		
 		}
 		
-	},
+	},*/
 });
 Template.updateproduct.events({
 	getTag: function(parentid){
@@ -709,18 +709,16 @@ Template.details.events({
                  alert('Product successfully added to favorite!');
             }
     },
-    'click #addtocart':function(e,tpl){
-        
-        
+    'click #add_tocart':function(e,tpl){
              e.preventDefault();
              var id_product=this._id;
              var qty=tpl.$("#qty").val();
              var shop=tpl.$("#shop").val();
              var attribute=Session.get('selected_attr');
-
-             if(shop==''){
-             	alert("Please select a shop!");
-             	return;
+             var msg = "";
+             if(shop==""){
+             	msg+="<p>Please select a shop!.</p>";
+             	$(".cartmsg").html(msg);
              }
              if(attribute=='No attribute')
              	attribute='';
