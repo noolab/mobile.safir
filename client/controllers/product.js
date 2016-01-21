@@ -709,14 +709,15 @@ Template.details.events({
                  alert('Product successfully added to favorite!');
             }
     },
-    'click #add_tocart':function(e,tpl){
+    'click #addtocart':function(e,tpl){
              e.preventDefault();
              var id_product=this._id;
              var qty=tpl.$("#qty").val();
              var shop=tpl.$("#shop").val();
              var attribute=Session.get('selected_attr');
-             var msg = "";
-             if(shop==""){
+              var msg="";
+
+            if(shop==""){
              	msg+="<p>Please select a shop!.</p>";
              	$(".cartmsg").html(msg);
              }

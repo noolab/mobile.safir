@@ -45,7 +45,7 @@
                                   
                                   <form role="form" id="cart" style="padding:0px;margin:0px;">
                                     <label  >Select Shop</label>
-                                    <select class=" col-xs-12 col-sm-12" name="shop" id="shop">
+                                    <select class=" col-xs-12 col-sm-12" name="shop" id="shop" required>
                                       <option value="">Please Select</option>
                                       {{#each getShop shop}}
                                         <option value="{{_id}}">{{name}}</option>
