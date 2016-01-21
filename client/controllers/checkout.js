@@ -5,15 +5,15 @@ Template.checkout.helpers({
 		//alert('ok');
 		var mycart = '';
 		if(Meteor.userId()){
-			//userid = Meteor.userId();	
+			euserid = Meteor.userId();	
 			mycart = cart.find({$and:[{order_status:0},{userId:Meteor.userId()}]});
 		}
-		// else{
-		// 	userid = Session.get('userId');
-		// 	if( userid ){
-		// 		mycart = cart.find({$and:[{order_status:0},{userId:userid}]});
-		// 	}
-		// }
+		else{
+			userid = Session.get('userId');
+			if( userid ){
+				mycart = cart.find({$and:[{order_status:0},{userId:userid}]});
+			}
+		}
 		var total = 0;
 		
 		mycart.forEach( function(value,index){

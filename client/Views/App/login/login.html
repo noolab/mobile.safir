@@ -13,18 +13,19 @@
 	<div class="col-xs-12">
 		<form class="bg_login center-block" method="post">
 			<div class="text-center title-form">
-				<button class="login_not_click">{{_ "Login"}}</button>
+				<button type="submit" class="login_not_click">{{_ "Login"}}</button>
 					<span class="or">or</span>
-				<a href="/register"><button class="registers_click">{{_ "Register"}}</button></a>
+				<a href="/register">
+					<button type="submit" class="registers_click">{{_ "Register"}}</button></a>
 			</div>
 			<div class="col-xs-12 form-group">	
 			  	<label class="lable_input">{{_ "Username"}}</label>
-					<input class="long_form" name="email">
+					<input type="email" class="long_form" name="email" required>
 					<br>
 			</div>
 			<div class="col-xs-12 form-group">	
 			  	<label class="lable_input">{{_ "Password"}}</label>
-					<input class="long_form" name="password" type="password">
+					<input class="long_form" name="password" type="password" required>
 					<br>
 			</div>
 		  	<div class="col-xs-12">

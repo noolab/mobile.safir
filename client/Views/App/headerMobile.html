@@ -87,7 +87,8 @@
                                 <div class="row priceRange">
                                     <span class="pull-left" id="min">0 $</span><span class="pull-right" id="max">+100 000000 $</span>
                                 </div>
-                                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100000000" data-slider-step="5" data-slider-value="[0,100000000]" id="sl2" >
+                                <!-- <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="100000000" data-slider-step="5" data-slider-value="[0,100000000]" id="sl2" > -->
+                                <input id="ex2" style="width:200px;" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100000000" data-slider-step="5" data-slider-value="[0,100000000]"/>
                             </div>
                         <li class="item"><a href="#" id="brands">Brands</a></li>
                         <!-- panel brands -->
@@ -312,5 +313,10 @@
 
             </section> <!-- #content-wrapper -->
         </section> <!-- #page-wrapper -->
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $("#ex2").slider({});
+            });
+        </script>
 
 </template>

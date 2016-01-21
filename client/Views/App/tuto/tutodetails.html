@@ -9,7 +9,9 @@
            </div>
            <div class="col-md-7">
 			  <h1 class="txt-color" >{{title}}</h1><br>
-			  <iframe width="490" height="370" src="{{url}}" frameborder="0" allowfullscreen="allowfullscreen" data-link="{{url}}"></iframe>
+			   <video  width="490" height="370"  controls>
+            <source src="/videos/{{url}}" type="video/mp4">
+        </video>
 			  <div class="share-control" style="padding-top:10px; padding-bottom:50px">
 			 	 <div class="col-md-4"> 
 				  </div>
@@ -30,7 +32,9 @@
            {{#each getRelated}}
                <div class="row space-row-tuto div_hover">
 	             <div class="col-md-5">
-	             	<iframe width="150" height="113" src="{{url}}" frameborder="0" allowfullscreen="allowfullscreen" data-link="{{url}}"></iframe>
+        	       <video  width="150" height="113"  controls>
+                    <source src="/videos/{{url}}" type="video/mp4">
+                  </video>
 	             </div>
 				 <div class="col-md-7">
 				  	<h4 class="h4-bold-tuto">{{title}}</h4>

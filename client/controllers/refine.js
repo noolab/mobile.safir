@@ -231,8 +231,8 @@ Template.headermobile.helpers({
 });
 
 Template.myrefine.onRendered(function(){
-	$('#sl2').slider(); 
-	$('#sl2').slider().on('slideStop', function(ev){
+	$('#ex2').slider(); 
+	$('#ex2').slider().on('slideStop', function(ev){
 	    console.log('sliderstop');
 	    var min=Number($(".tooltip-inner").text().split(':')[0].replace(' ',''));//$("#sl2").data('slider-min');
 	    var max=Number($(".tooltip-inner").text().split(':')[1].replace(' ',''));//$("#sl2").data('slider-max');
